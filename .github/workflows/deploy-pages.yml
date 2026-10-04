@@ -1,12 +1,12 @@
 name: Deploy to GitHub Pages
 
-# Runs on every push to main (the branch Pages serves) and on the
-# working branch, and can also be started by hand from the Actions tab.
+# main is the branch the github-pages environment is allowed to deploy
+# from, so publishing is driven off pushes there. It can also be started
+# by hand from the Actions tab.
 on:
   push:
     branches:
       - main
-      - 'arena/**'
   workflow_dispatch:
 
 # Allow only one deployment at a time, but let in-flight ones finish.
