@@ -1,0 +1,182 @@
+/* ============================================================
+   Ranmika Dulmin — Portfolio
+   Custom styles (loaded after the Tailwind CDN)
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --cyan: #06b6d4;
+    --violet: #8b5cf6;
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+}
+
+/* ---------- Base ---------- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Outfit', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background-color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent layout shift from AOS transforms */
+[data-aos] {
+    will-change: transform, opacity;
+}
+
+/* ---------- Gradient text ---------- */
+.text-gradient {
+    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 40%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ---------- Glassmorphism (navbar / menus) ---------- */
+.glass {
+    background-color: rgba(15, 23, 42, 0.72);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Navbar shrinks slightly once the page is scrolled */
+.glass.scrolled {
+    background-color: rgba(15, 23, 42, 0.92);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- Hero background overlay ---------- */
+.hero-overlay {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.18), transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.20), transparent 45%),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.65) 45%, #0f172a 100%);
+}
+
+/* ---------- Card hover effect ---------- */
+.hover-card-effect {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.hover-card-effect:hover {
+    transform: translateY(-8px);
+    border-color: rgba(6, 182, 212, 0.45);
+    box-shadow: 0 20px 45px -15px rgba(6, 182, 212, 0.35);
+}
+
+/* ---------- Button glow ---------- */
+.btn-glow:hover {
+    box-shadow: 0 0 22px rgba(6, 182, 212, 0.45), 0 0 40px rgba(139, 92, 246, 0.28);
+}
+
+/* ---------- Animation utilities ---------- */
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* ---------- Custom scrollbar ---------- */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #06b6d4, #8b5cf6);
+    border-radius: 9999px;
+    border: 2px solid #0f172a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #22d3ee, #a78bfa);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #06b6d4 #0f172a;
+}
+
+/* ---------- Selection ---------- */
+::selection {
+    background: rgba(6, 182, 212, 0.35);
+    color: #ffffff;
+}
+
+/* ---------- Focus visibility (accessibility) ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 2px;
+}
+
+/* ---------- Form status message (injected by main.js) ---------- */
+#form-status {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    border: 1px solid transparent;
+    display: none;
+}
+
+#form-status.visible {
+    display: block;
+    animation: fade-in-up 0.35s ease both;
+}
+
+#form-status.success {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.45);
+    color: #6ee7b7;
+}
+
+#form-status.error {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.45);
+    color: #fca5a5;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
